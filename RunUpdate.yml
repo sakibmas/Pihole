@@ -1,0 +1,14 @@
+---
+- name: Update pihole
+  hosts: "{{ host }}"
+  
+  tasks:
+  - name: Copy script
+    copy:
+      src: upgrade.sh
+      dest: ~/upgrade.sh
+      mode: u+x
+    
+  - name: Execute script
+    shell: ./upgrade.sh
+...
